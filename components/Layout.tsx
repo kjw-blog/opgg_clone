@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
-      <div className={`w-screen h-full select-none ${isDark && 'dark'}`}>
+      <div className={`w-full h-full select-none ${isDark && 'dark'}`}>
         <div className="min-h-screen">
           <Header />
           {children}
