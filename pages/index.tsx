@@ -1,10 +1,14 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+
+import Seo from '@components/common/SEO';
 
 const Home: NextPage = () => {
-  return <>index</>;
+  return (
+    <>
+      <Seo title="롤 전적 검색 OP.GG" />
+      <h1>index</h1>
+    </>
+  );
 };
 
 export default Home;
