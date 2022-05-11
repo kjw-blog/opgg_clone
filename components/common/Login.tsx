@@ -12,7 +12,7 @@ export default function Login() {
           <LoginInput type="id" />
           <LoginInput type="password" />
         </div>
-        <button className="bg-main-400 hover:bg-main-500 w-full h-12 text-lg text-white rounded-md">
+        <button className="bg-main-400 hover:bg-main-500 w-full h-12 text-lg text-white transition-colors duration-200 rounded-md">
           로그인
         </button>
       </form>

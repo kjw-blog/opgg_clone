@@ -55,11 +55,11 @@ export default function GameHeader() {
                 <span className="text-xs text-gray-300">한국어</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className=" w-3 h-3 text-gray-300"
-                  fill="none"
+                  className=" w-3 h-3"
+                  fill="#C3CBD1"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="3"
+                  stroke="#C3CBD1"
+                  strokeWidth="2"
                 >
                   <path
                     strokeLinecap="round"
