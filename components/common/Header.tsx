@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import GameHeader from './GameHeader';
+import GameHeader from '@components/common/GameHeader';
 
 export default function Header() {
   return (

@@ -6,6 +6,7 @@ import wrapper from '@store/configureStore';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
+      <div id="root-modal" />
       <Component {...pageProps} />
     </Layout>
   );

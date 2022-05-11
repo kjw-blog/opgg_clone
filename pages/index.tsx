@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-import Seo from '@components/common/SEO';
+import Seo from '@components/common/Seo';
 
 const Home: NextPage = () => {
   return (
