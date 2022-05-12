@@ -5,8 +5,6 @@ import useSWR from 'swr';
 export default function Champions() {
   const { data } = useSWR('/api/champions');
 
-  console.log(data);
-
   return (
     <>
       {data?.data?.length === 0 ? (
