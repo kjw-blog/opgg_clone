@@ -65,7 +65,7 @@ export default function ChampionList({ data }: any) {
                 className="w-[86px] h-[86px]"
                 src={'https://via.placeholder.com/86'}
               />
-              <span className="text-sm text-gray-600 h-[20px] ">
+              <span className="text-sm text-gray-600 h-[20px]">
                 {champion.kor}
               </span>
             </div>
