@@ -2,15 +2,18 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { listSelects } from '@utils/client/getText';
 import classNames from 'classnames';
-import Champions from 'pages/champions';
+import useSWR from 'swr';
 
 interface ListType {
+  key: number;
   eng: string;
   kor: string;
   tags: string[];
 }
 
 export default function ChampionList({ data }: any) {
+  const { data: rotations } = useSWR('/api/champion-rotations');
+
   const [list, setList] = useState<ListType[]>([]);
   const [listSelect, setListSelect] = useState<string>('all');
 
@@ -26,14 +29,19 @@ export default function ChampionList({ data }: any) {
       });
       const _list = sort.map((c: any) => {
         return {
+          key: c.key,
           eng: c.id,
           kor: c.name,
           tags: c.tags,
         };
       });
+
+      console.log(rotations?.freeChampionIds);
+      console.log();
+
       setList(_list);
     }
-  }, [data]);
+  }, [data, rotations]);
 
   return (
     <div className="w-[32%] h-auto">
@@ -60,12 +68,15 @@ export default function ChampionList({ data }: any) {
         </nav>
         <div className="gap-y-8 grid grid-cols-6 px-4 py-6 bg-gray-100">
           {list.map((champion: ListType) => (
-            <div key={champion.eng} className="w-86 grid grid-cols-1">
+            <div
+              key={champion.eng}
+              className="w-[86px] grid grid-cols-1 space-y-1"
+            >
               <img
                 className="w-[86px] h-[86px]"
                 src={'https://via.placeholder.com/86'}
               />
-              <span className="text-sm text-gray-600 h-[20px]">
+              <span className="text-[0.8rem] text-gray-600 h-[20px] overflow-ellipsis overflow-hidden whitespace-nowrap">
                 {champion.kor}
               </span>
             </div>
