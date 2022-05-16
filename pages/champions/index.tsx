@@ -1,5 +1,6 @@
 import ChampionList from '@components/champions/ChampionList';
 import Loading from '@components/common/Loading';
+import Seo from '@components/common/Seo';
 import useSWR from 'swr';
 
 export default function Champions() {
@@ -7,10 +8,11 @@ export default function Champions() {
 
   return (
     <>
+      <Seo title="챔피언 분석" />
       {data?.data?.length === 0 ? (
         <Loading />
       ) : (
-        <div className="flex items-center justify-center w-full h-auto pt-10 bg-gray-200">
+        <div className="flex justify-center w-full h-screen pt-10 bg-gray-200">
           <ChampionList data={data?.data} />
           <div className="border-2 border-red-500 w-[25%]" />
           {/* <svg
