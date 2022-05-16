@@ -12,6 +12,7 @@ interface ListType {
 }
 
 export default function ChampionList({ data }: any) {
+  console.log('test branch');
   const { data: rotations } = useSWR('/api/champion-rotations');
 
   const [list, setList] = useState<ListType[]>([]);
@@ -35,9 +36,6 @@ export default function ChampionList({ data }: any) {
           tags: c.tags,
         };
       });
-
-      console.log(rotations?.freeChampionIds);
-      console.log();
 
       setList(_list);
     }
