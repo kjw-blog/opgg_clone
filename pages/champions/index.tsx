@@ -12,9 +12,9 @@ export default function Champions() {
       {data?.data?.length === 0 ? (
         <Loading />
       ) : (
-        <div className="flex justify-center w-full h-screen pt-10 bg-gray-200">
+        <div className="flex justify-center w-full h-full min-h-[45rem] pt-10 bg-gray-200">
           <ChampionList data={data?.data} />
-          <div className="border-2 border-red-500 w-[25%]" />
+          <div className=" w-[25%]" />
           {/* <svg
             id="Icons"
             className="w-6 h-6"

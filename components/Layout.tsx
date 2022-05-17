@@ -1,4 +1,5 @@
 import { useSelector } from '@store/configureStore';
+import Footer from './common/Footer';
 import Header from './common/Header';
 
 interface LayoutProps {
@@ -10,12 +11,15 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
-      <div className={`w-full h-full select-none ${isDark && 'dark'}`}>
-        <div className="min-h-screen">
-          <Header />
-          {children}
-        </div>
+      <div
+        className={`relative pb-40 w-full min-h-full select-none ${
+          isDark && 'dark'
+        }`}
+      >
+        <Header />
+        {children}
       </div>
+      <Footer />
     </>
   );
 }
