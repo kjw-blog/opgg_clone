@@ -3,15 +3,21 @@ import Image from 'next/image';
 
 import { tags_kor } from '@utils/client/getText';
 import { ListType } from './ChampionList';
+import { useRouter } from 'next/router';
 
 interface ProfileProps {
   champion: ListType;
 }
 
 export default function Profile({ champion }: ProfileProps) {
+  const router = useRouter();
+  const handleLink = () => {
+    router.push(`/champions/${champion.eng.toLowerCase()}`);
+  };
   return (
     <div
       key={champion.eng}
+      onClick={handleLink}
       className="relative w-[86px] grid grid-cols-1 space-y-1 cursor-pointer"
     >
       <div className="w-[86px] h-[86px] relative">
