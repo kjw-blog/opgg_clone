@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { listSelects } from '@utils/client/getText';
+import { chosung, chosungCheck, listSelects } from '@utils/client/getText';
 import classNames from 'classnames';
 import useSWR from 'swr';
 import Image from 'next/image';
@@ -32,7 +32,21 @@ export default function ChampionList({ data }: any) {
         return list.filter((champion) =>
           champion.eng.toLowerCase().includes(searchChampion.toLowerCase())
         );
-      } else if (searchChampion) {
+      } else if (
+        chosung.filter((char) =>
+          searchChampion.replaceAll(' ', '').split('').includes(char)
+        ).length > 0
+      ) {
+        return list.filter((champion) =>
+          chosungCheck({ champion: champion.kor, search: searchChampion })
+        );
+      } else {
+        console.log('else');
+        return list.filter((champion) =>
+          champion.kor
+            .replaceAll(' ', '')
+            .includes(searchChampion.replaceAll(' ', ''))
+        );
       }
     }
 

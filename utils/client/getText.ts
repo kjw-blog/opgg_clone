@@ -1,3 +1,8 @@
+interface ChosungParams {
+  champion: string;
+  search: string;
+}
+
 export const tags_kor = {
   Fighter: '근딜',
   Tank: '탱커',
@@ -39,3 +44,17 @@ export const chosung = [
   'ㅍ',
   'ㅎ',
 ];
+export const chosungCheck = ({ champion, search }: ChosungParams) => {
+  let result = '',
+    code;
+
+  const _champion = champion.replaceAll(' ', '');
+  const _search = search.replaceAll(' ', '');
+
+  for (let i = 0; i < _champion.length; i++) {
+    code = _champion.charCodeAt(i) - 44032;
+    if (code > -1 && code < 11172) result += chosung[Math.floor(code / 588)];
+  }
+
+  return result.includes(_search);
+};
