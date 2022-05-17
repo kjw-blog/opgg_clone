@@ -3,7 +3,7 @@ interface ChosungParams {
   search: string;
 }
 
-export const tags_kor = {
+export const tags_kor: { [key: string]: string } = {
   Fighter: '근딜',
   Tank: '탱커',
   Mage: '메이지',
