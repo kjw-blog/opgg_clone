@@ -17,3 +17,25 @@ export const listSelects = [
   { eng: 'Support', kor: '서포터' },
   { eng: 'Rotation', kor: '로테이션' },
 ];
+
+export const chosung = [
+  'ㄱ',
+  'ㄲ',
+  'ㄴ',
+  'ㄷ',
+  'ㄸ',
+  'ㄹ',
+  'ㅁ',
+  'ㅂ',
+  'ㅃ',
+  'ㅅ',
+  'ㅆ',
+  'ㅇ',
+  'ㅈ',
+  'ㅉ',
+  'ㅊ',
+  'ㅋ',
+  'ㅌ',
+  'ㅍ',
+  'ㅎ',
+];
