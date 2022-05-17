@@ -1,17 +1,12 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import {
-  chosung,
-  chosungCheck,
-  listSelects,
-  tags_kor,
-} from '@utils/client/getText';
+import { chosung, chosungCheck, listSelects } from '@utils/client/getText';
 import classNames from 'classnames';
 import useSWR from 'swr';
-import Image from 'next/image';
 import { useMemo } from 'react';
+import Profile from './Profile';
 
-interface ListType {
+export interface ListType {
   key: number;
   eng: string;
   kor: string;
@@ -127,43 +122,7 @@ export default function ChampionList({ data }: any) {
         {resultList.length > 0 ? (
           <div className="gap-y-8 grid grid-cols-6 px-4 py-6 bg-gray-100">
             {resultList.map((champion: ListType) => (
-              <div
-                key={champion.eng}
-                className="relative w-[86px] grid grid-cols-1 space-y-1 cursor-pointer"
-              >
-                <div className="w-[86px] h-[86px] relative">
-                  <Image
-                    className="w-[86px] h-[86px] rounded-md bg-gray-300"
-                    src={`https://ddragon.leagueoflegends.com/cdn/12.9.1/img/champion/${champion.eng}.png`}
-                    width={86}
-                    height={86}
-                    alt={`${champion.kor}`}
-                  />
-                  {champion.tags.length > 0 && (
-                    <div className="bottom-1 right-1 absolute flex flex-col items-end space-y-1 text-xs">
-                      {champion.tags.map((tag) => (
-                        <p
-                          key={tag}
-                          className={classNames(
-                            'content-center px-1 text-center text-white bg-gray-700',
-                            tags_kor[tag].length === 2 ? 'w-[32px]' : 'w-[44px]'
-                          )}
-                        >
-                          {tags_kor[tag]}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <span className="text-xs text-gray-600 h-[20px] overflow-ellipsis overflow-hidden whitespace-nowrap">
-                  {champion.kor}
-                </span>
-                {champion.rotation && (
-                  <div className=" bg-main-500 -left-2 -top-2 absolute flex items-center justify-center w-6 h-6 font-bold text-white rounded-full">
-                    !
-                  </div>
-                )}
-              </div>
+              <Profile key={champion.key} champion={champion} />
             ))}
           </div>
         ) : (
